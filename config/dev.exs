@@ -14,7 +14,6 @@ config :attend, Attend.Endpoint,
   watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin",
                     cd: Path.expand("../", __DIR__)]]
 
-
 # Watch static and templates for browser reloading.
 config :attend, Attend.Endpoint,
   live_reload: [
@@ -36,8 +35,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :attend, Attend.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "ben",
+  # password: "postgres",
   database: "attend_dev",
   hostname: "localhost",
   pool_size: 10
