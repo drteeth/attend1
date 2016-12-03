@@ -1,9 +1,9 @@
 defmodule Attend.Team do
   use Attend.Web, :model
+  alias Attend.Member
 
   schema "teams" do
     field :name, :string
-    belongs_to :captain, Attend.Captain
 
     timestamps()
   end
@@ -16,4 +16,11 @@ defmodule Attend.Team do
     |> cast(params, [:name])
     |> validate_required([:name])
   end
+
+  def add_member_changeset(team, user, is_captain \\ false) do
+    # TODO handle is_captain
+    params = %{ user: user, team: team }
+    Member.changeset(%Member{}, params)
+  end
+
 end
