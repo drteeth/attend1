@@ -14,10 +14,6 @@ defmodule Attend.ExploreTest do
     |> Multi.insert(:bob, Team.add_member_changeset(team, bob))
     |> Repo.transaction
 
-    # query = from m in Member,
-    #         select: m,
-    #         preload: [:user, :team]
-    # IO.inspect Repo.all(query)
     IO.inspect Repo.all(Member)
   end
 
