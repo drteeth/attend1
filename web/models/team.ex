@@ -19,7 +19,10 @@ defmodule Attend.Team do
 
   def add_member_changeset(team, user, is_captain \\ false) do
     # TODO handle is_captain
-    params = %{ user: user, team: team }
+    params = %{
+      user_id: user.id,
+      team_id: team.id
+    }
     Member.changeset(%Member{}, params)
   end
 

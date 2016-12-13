@@ -9,13 +9,19 @@ defmodule Attend.Member do
     timestamps()
   end
 
+  @required_fields [
+    :user_id,
+    :team_id,
+    :is_captain
+  ]
+
   @doc """
   Builds a changeset based on the `struct` and `params`.
   """
   def changeset(struct, params \\ %{}) do
     struct
-    |> cast(params, [:is_captain])
-    |> validate_required([:is_captain])
+    |> cast(params, @required_fields)
+    |> validate_required(@required_fields)
     |> assoc_constraint(:user)
     |> assoc_constraint(:team)
   end
